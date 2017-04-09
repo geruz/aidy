@@ -1,0 +1,25 @@
+{
+  "name": "aidy",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --cache=true --cache-location=.eslint  --fix ./",
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "prepublish": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geruz/aidy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geruz/aidy/issues"
+  },
+  "homepage": "https://github.com/geruz/aidy#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "mocha": "^3.2.0"
+  }
+}
