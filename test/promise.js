@@ -1,10 +1,10 @@
 'use strict';
 
-const {promise, plugins: {defer, recover}} = require('../');
+const {promise} = require('../');
 const assert = require('assert');
 
 const createTimeoutPromise = function (res) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         setTimeout(() => resolve(res), 100);
     });
 };
