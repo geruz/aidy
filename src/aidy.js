@@ -6,10 +6,7 @@ const async = Symbol('aidy async marker');
 const yielder = function (gen, callback, context) {
     const step = function (err, value) {
         try {
-            if (err) {
-                gen.throw(err);
-            }
-            let res = {
+            let res = err ? gen.throw(err) : {
                 done: false,
                 value,
             };
@@ -50,9 +47,9 @@ exports.markers = {
     async,
 };
 
-exports.promise = function (gen) {
+exports.promise = function (gen, context = {}) {
     if (gen.next instanceof Function && gen.throw instanceof Function) {
-        return createPromise(gen, {});
+        return createPromise(gen, context);
     }
     throw new Error('aidy: Generator is bad');
 };
